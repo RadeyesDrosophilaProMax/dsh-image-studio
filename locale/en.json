@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Image Studio",
+    "description": "Generate images without leaving DSH: prompt on the left, result on the right, history kept locally."
+  }
+}

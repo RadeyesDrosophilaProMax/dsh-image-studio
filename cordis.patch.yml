@@ -1,0 +1,26 @@
+# dsh-image-studio bundle layer.
+# Mounts the plugin row; every field below is optional except the two paths,
+# which must point at your own Stable Diffusion WebUI install.
+- insert:
+    - id: sd-studio
+      name: 'dsh-image-studio'
+      config:
+        # AUTOMATIC1111 WebUI 的 Python 解释器（整合包一般在 <installDir>\python\python.exe）
+        pythonPath: ''
+        # AUTOMATIC1111 WebUI 的安装目录（里面有 launch.py）
+        installDir: ''
+        # WebUI 的 API 端口，插件也用这个端口连它
+        port: 7860
+        # 启动 WebUI 后等它就绪的上限（毫秒）
+        readyTimeoutMs: 240000
+        # 单次出图的请求超时（毫秒）
+        timeoutMs: 180000
+        defaultSteps: 20
+        defaultWidth: 512
+        defaultHeight: 512
+        # 出图后自动把图片发到当前聊天渠道（需要 dsh-qqbot 或 dsh-wechat）
+        wechatPush: true
+        # 中文提示词翻译：auto = 先云端再本地，cloud = 只用云端，local = 只用本地
+        translateMode: local
+        # translateMode 为 local/auto 时使用的 OpenAI 兼容端点
+        translateLocalUrl: http://127.0.0.1:1234/v1

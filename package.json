@@ -1,0 +1,40 @@
+{
+  "name": "dsh-image-studio",
+  "version": "1.0.0",
+  "description": "In-app image studio for DeepSeek Harness: prompt builder, txt2img/img2img and gallery over a local Stable Diffusion WebUI, plus a generate_image tool, a /draw command and one-click push to WeChat/QQ",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis-plugin",
+    "stable-diffusion",
+    "automatic1111",
+    "image-generation"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

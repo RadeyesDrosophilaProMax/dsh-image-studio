@@ -1,0 +1,16 @@
+# 依赖与产物
+node_modules/
+out/
+generated/
+*.log
+push.log
+*.png.tmp
+
+# 本地配置（含个人路径/端口）
+.env
+.local/
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
