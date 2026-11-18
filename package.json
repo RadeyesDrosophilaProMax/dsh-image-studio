@@ -28,6 +28,15 @@
     "image-generation"
   ],
   "license": "MIT",
+  "author": "RadeyesDrosophilaProMax",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadeyesDrosophilaProMax/dsh-image-studio.git"
+  },
+  "homepage": "https://github.com/RadeyesDrosophilaProMax/dsh-image-studio#readme",
+  "bugs": {
+    "url": "https://github.com/RadeyesDrosophilaProMax/dsh-image-studio/issues"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"

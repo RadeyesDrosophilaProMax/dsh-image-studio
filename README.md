@@ -6,6 +6,12 @@
 > a prompt-builder panel over a local AUTOMATIC1111 Stable Diffusion WebUI, a `generate_image`
 > tool the model can call, a `/draw` slash command, and one-click delivery to WeChat/QQ.
 
+**快速安装**（桌面版）：
+
+```bash
+dsh plugin --profile desktop add git+https://github.com/RadeyesDrosophilaProMax/dsh-image-studio
+```
+
 ---
 
 ## 界面
@@ -39,12 +45,38 @@
 
 ## 安装
 
-### 方式一：插件管理
+### 一条命令装好（桌面版 CLI）
 
-设置 → 插件 → 添加插件，安装源填本仓库地址（`git+https://github.com/<你的账号>/dsh-image-studio`），
-或在 `cordis.patch.yml` 里把 `pythonPath` / `installDir` 指到你自己的 WebUI。
+```bash
+dsh plugin --profile desktop add git+https://github.com/RadeyesDrosophilaProMax/dsh-image-studio
+```
 
-### 方式二：手动挂到 profile 的 patch
+把 `desktop` 换成你自己的 profile 名（`dsh plugin --profile <名字> list --depth 0` 可以看已装的）。
+装完插件就挂上了，只剩两行要填 —— WebUI 的 Python 和安装目录：
+
+```yaml
+- insert:
+    - id: sd-studio
+      name: 'dsh-image-studio'
+      config:
+        pythonPath: D:\sd-webui-aki\python\python.exe
+        installDir: D:\sd-webui-aki
+```
+
+> 没有发 npm 包，所以要用 `git+https://…` 这种地址安装；`add` 之后管理器会先 `git ls-remote` 探一次仓库连通性，再交给 pnpm。
+> 卸载在 **设置 → 插件** 里移除即可（也可以用 `dsh plugin --help` 查当前版本支持的卸载子命令）。
+
+### Web 界面安装
+
+设置 → 插件 → 添加插件，安装源填：
+
+```
+git+https://github.com/RadeyesDrosophilaProMax/dsh-image-studio
+```
+
+装好后同样把 `pythonPath` / `installDir` 填上。
+
+### 方式三：手动挂到 profile 的 patch
 
 把本仓库放进 `%DSH_PROFILE_DIR%\node_modules\dsh-image-studio`（或做目录联接），再在 profile 的 `cordis.patch.yml` 追加：
 
@@ -58,7 +90,7 @@
         port: 7860
 ```
 
-### 方式三：开发期用目录联接
+### 方式四：开发期用目录联接
 
 ```powershell
 New-Item -ItemType Junction -Path "$env:DSH_PROFILE_DIR\node_modules\dsh-image-studio" -Target D:\path\to\dsh-image-studio
